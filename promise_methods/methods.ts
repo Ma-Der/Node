@@ -84,12 +84,9 @@ export function promiseIgnoreErrors<T>(arrayOfPromises: T[]): Promise<T[]> {
                     result.push(res);
                 })
                 .then(() => {
-                    const finalResult = result.filter(element => {if(!(element instanceof Error)) return element });
-                    resolve(finalResult)
+                    resolve(result)
                 })
-                .catch((err) => {
-                    if (err) return;
-                });
+                .catch((err) => {});
         }
     });
 }    

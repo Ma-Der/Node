@@ -1,5 +1,5 @@
 import { promiseAll, promiseRace, promiseLast, promiseIgnoreErrors} from './methods';
-import { promiseAllAsyncAwait, promiseRaceAsyncAwait, promiseLastAsyncAwait, promiseIgnoreErrorsAsyncAwait} from './methodsAsyncAwait';
+import { promiseAllAsyncAwait, promiseLastAsyncAwait, promiseIgnoreErrorsAsyncAwait} from './methodsAsyncAwait';
 
 const promise1 = new Promise((resolve, reject) => {
     setTimeout(resolve, 1000, 84);
@@ -24,14 +24,12 @@ promiseAllAsyncAwait(promi)
     .then(res => console.log('promiseAllAA: '+res))
     .catch(err => console.log(err))
 
-promiseRaceAsyncAwait(promi)
-    .then(res => console.log('promiseRaceAA: '+res))
-
 promiseLastAsyncAwait(promi)
     .then(res => console.log('promiseLastAA: '+res))
 
 promiseIgnoreErrorsAsyncAwait(promi)
     .then(res => console.log('promiseIgnoreErrorsAA: '+res))
+    .catch(err => {})
 
     const timeProm = new Promise(resolve => setTimeout(resolve, 1000, 45))
     const prom = [timeProm, Promise.resolve(34), 7, new Error('Ooops'), timeProm, "rtre"];
