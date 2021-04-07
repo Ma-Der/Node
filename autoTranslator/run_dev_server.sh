@@ -1,0 +1,1 @@
+npx esbuild src/script.ts --bundle --minify --platform=node --outfile=build/script.js --watch
