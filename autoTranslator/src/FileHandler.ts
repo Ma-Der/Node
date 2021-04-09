@@ -1,5 +1,9 @@
 import fs from 'fs';
 
+interface Content {
+    [key: string]: string;
+}
+
 export class FileHandler {
 
     path: string;
@@ -25,7 +29,7 @@ export class FileHandler {
         })
     }
 
-    saveToFile(content: JSON) {
+    saveToFile(content: Content) {
         fs.writeFile(this.path, JSON.stringify(content), () => console.log(`Saved to ${this.path}`));
     }
 }

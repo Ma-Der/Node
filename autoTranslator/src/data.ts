@@ -12,5 +12,5 @@ export const pl = {
 }
 
 export const requestBody = {
-    lang:'en' 
+    lang:'it' 
 }

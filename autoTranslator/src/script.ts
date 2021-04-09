@@ -19,12 +19,20 @@ app.get('/', (req, res) => {
                 res.write(JSON.stringify(data));
                 res.end();
             })
+            .catch(err => {
+                res.write('Oops: '+err)
+                res.end()
+            })
     } else {
         translator
         .then(data => {
             fileHandler.saveToFile(data);
             res.write(JSON.stringify(data));
             res.end();
+        })
+        .catch(err => {
+            res.write('Oops: '+err)
+            res.end()
         })
     }
 

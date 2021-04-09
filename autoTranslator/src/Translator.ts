@@ -1,15 +1,17 @@
 import { Preprocessor } from './Preprocessor';
 import { Translate } from './Translate';
-import { FileHandler } from './FileHandler';
-import {pl} from './data'
+
+interface EntryObject {
+    [key: string]: any;
+}
 
 export class Translator {
     
-    obj: any;
+    obj: EntryObject;
     key: string;
     targetLanguage: string;
     
-    constructor(obj: any, key: string, targetLanguage: string) {
+    constructor(obj: EntryObject, key: string, targetLanguage: string) {
         this.obj = obj;
         this.key = key;
         this.targetLanguage = targetLanguage;
@@ -48,10 +50,4 @@ export class Translator {
             return translatedObject;
         });
     }  
-        // za pomoca FileHandler.checkCasheExist sprawdzamy czy podane tlumaczenie juz istnieje w pliku
-        // jesli tak to zwracamy to tlumaczenie z pliku
-        // jesli nie to za pomoca FileHandler.saveToFile zapisujemy do pliku
 }
-
-//const translator = new Translator(pl, 'AIzaSyDnEN3BauxzHlTCWAnK09Sv47U2hJfb4ZU', 'en')
-//const res = translator.createTranslatedObject().then(obj => console.log(obj))
