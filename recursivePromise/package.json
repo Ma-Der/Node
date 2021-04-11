@@ -15,6 +15,7 @@
     "concurrently": "^6.0.0",
     "esbuild": "^0.11.2",
     "nodemon": "^2.0.7",
-    "npx": "^10.2.2"
+    "npx": "^10.2.2",
+    "typescript": "^4.2.4"
   }
 }
