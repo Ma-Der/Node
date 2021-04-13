@@ -1,24 +1,22 @@
-import {pl} from './data';
-
 interface encodeResult {
   [key: string]: string;
 }
 
 interface decodeResult {
-  [key: string]: any;
+  [key: string]: string | {}; // lub any
 }
 
 export class Preprocessor {
 
     encode<T>(obj: T, prefix ='', result: encodeResult = {}) {
-        return Object.entries(obj).reduce((r, [key, value]) => {
+        return Object.entries(obj).reduce((res, [key, value]) => {
             const prefixedKey = `${prefix}${key}`;
             if(value instanceof Object){ 
-               this.encode(value, `${prefixedKey}.`, r)
+               this.encode(value, `${prefixedKey}.`, res)
             } else {
                 result[prefixedKey] = value;
             }                      
-            return r;
+            return res;
         }, result);
     }
 

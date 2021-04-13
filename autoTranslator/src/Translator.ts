@@ -2,7 +2,7 @@ import { Preprocessor } from './Preprocessor';
 import { Translate } from './Translate';
 
 interface EntryObject {
-    [key: string]: any;
+    [key: string]: unknown;
 }
 
 export class Translator {
