@@ -26,8 +26,8 @@ export class Preprocessor {
             let result: decodeResult = {}
             for (const key in obj) {
               const keys = key.split('.')
-              keys.reduce((r, e, i) => {
-                return r[e] || (r[e] = isNaN(Number(keys[i + 1])) ? (keys.length - 1 === i ? obj[key] : {}) : [])
+              keys.reduce((res, k, i) => {
+                return res[k] || (res[k] = isNaN(Number(keys[i + 1])) ? (keys.length - 1 === i ? obj[key] : {}) : [])
               }, result)
             }
             return result

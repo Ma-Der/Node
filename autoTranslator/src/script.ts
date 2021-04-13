@@ -7,7 +7,19 @@ import { pl, requestBody } from './data';
 const PORT = process.env.port || 3000;
 const key = 'AIzaSyDnEN3BauxzHlTCWAnK09Sv47U2hJfb4ZU';
 
-const app = express();
+const config = () => {
+    const app = express();
+    return app;
+}
+
+const listenServer = (app: any) => {
+    return app.listen(PORT, () => {
+        console.log(`Listening o port ${PORT}.`);
+    });
+}
+
+const app = config();
+
 
 app.get('/', (req, res) => {
     const translator = new Translator(pl, key, requestBody.lang).createTranslatedObject()
@@ -39,6 +51,4 @@ app.get('/', (req, res) => {
 
 })
 
-app.listen(PORT, () => {
-    console.log(`Listening o port ${PORT}.`);
-});
+listenServer(app);
