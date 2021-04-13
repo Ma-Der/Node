@@ -3,7 +3,7 @@ interface encodeResult {
 }
 
 interface decodeResult {
-  [key: string]: string | {};
+  [key: string]: string | {}; // lub any
 }
 
 export class Preprocessor {
@@ -25,7 +25,6 @@ export class Preprocessor {
             for (const key in obj) {
               const keys = key.split('.')
               keys.reduce((res, k, i) => {
-                console.log()
                 return res[k] || (res[k] = isNaN(Number(keys[i + 1])) ? (keys.length - 1 === i ? obj[key] : {}) : false)
               }, result)
             }

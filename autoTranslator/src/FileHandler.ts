@@ -1,7 +1,7 @@
 import fs from 'fs';
 
 interface Content {
-    [key: string]: string;
+    [key: string]: string | {};
 }
 
 export class FileHandler {
