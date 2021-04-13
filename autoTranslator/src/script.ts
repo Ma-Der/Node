@@ -4,7 +4,7 @@ import { Translator } from './Translator';
 import { FileHandler } from './FileHandler';
 import { pl, requestBody } from './data';
 
-const PORT = process.env.port || 3000;
+const PORT = process.env.port || 3500;
 const key = 'AIzaSyDnEN3BauxzHlTCWAnK09Sv47U2hJfb4ZU';
 
 const config = () => {
